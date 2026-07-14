@@ -84,7 +84,7 @@ def answer(file):
             st.session_state.tries -= 1
 
             if st.session_state.tries == 0:
-                st.error(f"The correct answer was {file["riddle"]}")
+                st.error(f"The correct answer was {file['riddle']}")
             
                 st.session_state.tries = 3
                 if st.button("Next riddle"):
