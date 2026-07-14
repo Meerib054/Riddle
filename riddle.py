@@ -77,7 +77,7 @@ def answer(file):
     ans = st.text_input("Answer:", key=f"answer_{st.session_state.current}")
 
     if st.button("Check Answer"):
-        if ans.lower().strip() == file["answer"].lower():
+        if ans.lower().strip() == file['answer'].lower():
             st.session_state.tries = 3
             return True
         else:
