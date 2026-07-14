@@ -6,7 +6,7 @@ import time
 st.header("🧩 THIS IS A GAME OF RIDDLES 🧩")
 st.write("")
 st.write("(note that all the answers are of two words)")
-st.write("you have 3 tries per riddle")
+st.write("you have 4 tries per riddle")
 
 def main():
     if "saved_riddles" not in st.session_state:
@@ -73,6 +73,15 @@ def answer(file):
     if "tries" not in st.session_state:
         st.session_state.tries=3
 
+    if st.session_state.tries <= 0:
+        st.error(f"The correct answer was: {file['answer']}")
+        
+        if st.button("Next Riddle"):
+            st.session_state.tries = 3  
+            return False  
+            
+        return None
+
     st.write(file["riddle"])
     ans = st.text_input("Answer:", key=f"answer_{st.session_state.current}")
 
@@ -82,16 +91,7 @@ def answer(file):
             return True
         else:
             st.session_state.tries -= 1
-
-            if st.session_state.tries == 0:
-                st.error(f"The correct answer was {file['riddle']}")
-            
-                st.session_state.tries = 3
-                if st.button("Next riddle"):
-                    st.rerun()
-                return False
     
-    return None
 
 
 def score(points):
