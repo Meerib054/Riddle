@@ -80,7 +80,7 @@ def answer(file):
             st.session_state.tries = 3
             st.session_state.current+=1
             return False  
-        st.session_state.pop(f"answer_{st.session_state.current - 1}", None)
+            st.session_state.pop(f"answer_{st.session_state.current - 1}", None)
             return False             
         return None
 
