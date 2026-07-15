@@ -54,21 +54,15 @@ def main():
 def riddle(desired_count):
     lis = []
     while len(lis) < desired_count:
-        headers={'X-Api-Key': '15tRtqs9LNVmN6znkB1eQbLY0HpfVTkpfWk3HwKv'}
-        get_requests = requests.get("https://api-ninjas.com", headers= headers)
+        get_requests = requests.get("https://riddles-api.vercel.app/random")
         get_requests.raise_for_status()
         get_j = get_requests.json()
 
-        if get_j: 
-            riddle_data = get_j[0]
-            answer_text = riddle_data["answer"].strip()
-            word_count = len(answer_text.split())
-            
-            if word_count == 2:
-                lis.append({
-                    "riddle": riddle_data["riddle"], 
-                    "answer": answer_text.lower()
-                })
+        answer_text = get_j["answer"].strip()
+        word_count = len(answer_text.split())
+
+        if  word_count == 2:
+            lis.append({"riddle": get_j["riddle"], "answer": answer_text.lower()})
 
     return lis
 
