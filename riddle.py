@@ -40,10 +40,10 @@ def main():
             st.session_state.current+=1
             st.rerun()
         
-        #elif result is False:
-            #st.session_state.pop(f"answer_{st.session_state.current}", None)
+        elif result is False:
+            st.session_state.pop(f"answer_{st.session_state.current}", None)
             #st.session_state.current+=1
-            #st.rerun()
+            st.rerun()
 
     else:
         st.success("Game Over!")
@@ -80,9 +80,8 @@ def answer(file):
             st.session_state.tries = 3
             st.session_state.current+=1
             return False  
-        #st.session_state.pop(f"answer_{st.session_state.current - 1}", None)
-        st.rerun()
-            
+        st.session_state.pop(f"answer_{st.session_state.current - 1}", None)
+            return False             
         return None
 
     st.write(file["riddle"])
