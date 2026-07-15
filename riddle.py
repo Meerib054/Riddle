@@ -99,7 +99,7 @@ def answer(file):
             return True
         else:
             st.session_state.tries -= 1
-            st.reerun()
+            st.rerun()
     
 
 
