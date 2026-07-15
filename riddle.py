@@ -91,10 +91,10 @@ def answer(file):
         if file["answer"].startswith(tuple(pronoun)):
             x=file["answer"].split()
             y=ans.split()
-            if x[1]==y[1]:
+            if x[1]==y[1] amd len(x)>1 and len(y)>1:
                 st.session_state.tries=2
                 return True
-        if ans.lower().strip() == file['answer'].lower():
+        elif ans.lower().strip() == file['answer'].lower():
             st.session_state.tries = 2
             return True
         else:
