@@ -94,7 +94,7 @@ def answer(file):
                 st.session_state.tries=3
                 return True
             else:
-              stst.session_state.tries-=1
+                st.session_state.tries-=1
 
         elif ans.lower().strip() == file['answer'].lower():
             st.session_state.tries = 3
