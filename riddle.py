@@ -59,11 +59,16 @@ def riddle(desired_count):
         get_requests.raise_for_status()
         get_j = get_requests.json()
 
-        answer_text = get_j["answer"].strip()
-        word_count = len(answer_text.split())
-
-        if  word_count == 2:
-            lis.append({"riddle": get_j["riddle"], "answer": answer_text.lower()})
+        if get_j: 
+            riddle_data = get_j[0]
+            answer_text = riddle_data["answer"].strip()
+            word_count = len(answer_text.split())
+            
+            if word_count == 2:
+                lis.append({
+                    "riddle": riddle_data["riddle"], 
+                    "answer": answer_text.lower()
+                })
 
     return lis
 
