@@ -92,7 +92,7 @@ def answer(file):
             x=file["answer"].split()
             y=ans.split()
             if x[1]==y[1]:
-                ans.st.session_state.tries=3
+                st.session_state.tries=3
                 return True
         if ans.lower().strip() == file['answer'].lower():
             st.session_state.tries = 3
