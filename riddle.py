@@ -106,7 +106,7 @@ def score(points):
 def effects(score, total):
     if score==0:
        st.snow()
-       st.error("Try better next time!")
+       st.error("Seriously bro? 😂")
 
     elif total==score:
         st.success("YAY! ☆")
