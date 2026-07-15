@@ -85,10 +85,20 @@ def answer(file):
     st.write(file["riddle"])
     ans = st.text_input("Answer:", key=f"answer_{st.session_state.current}")
 
-    pronoun=["my","our","a","the","in","their","your"]
+    pronoun=["my","our","a","the","in","their","your","an","it's"]
 
     if st.button("Check Answer"):
-        if ans.lower().strip() == file['answer'].lower():
+        if file["answer"].startswith(tuple(pronoun)):
+            x=file["answer"].split()
+            z=[i.lower() for i in x]
+            y=ans.split()
+            if len(x)>1 and len(y)>1 and z[1]==y[1]:
+                st.session_state.tries=3
+                return True
+            else:
+              stst.session_state.tries-=1
+
+        elif ans.lower().strip() == file['answer'].lower():
             st.session_state.tries = 3
             return True
         else:
