@@ -41,10 +41,9 @@ def main():
             st.rerun()
         
         elif result is False:
-            #st.session_state.pop(f"answer_{st.session_state.current}", None)
-            #st.session_state.current+=1
-            #st.rerun()
-            pass
+            st.session_state.pop(f"answer_{st.session_state.current}", None)
+            st.session_state.current+=1
+            st.rerun()
 
     else:
         st.success("Game Over!")
@@ -78,11 +77,9 @@ def answer(file):
         st.error(f"The correct answer was: {file['answer']}")
         
         if st.button("Next Riddle"):
-            st.session_state.pop(f"answer_{st.session_state.current}", None)
             st.session_state.tries = 3
-            st.session_state.current+=1
-            st.rerun()
-            #st.session_state.pop(f"answer_{st.session_state.current - 1}", None)
+            returnn False
+    
                  
         return None
 
