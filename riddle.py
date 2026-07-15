@@ -51,8 +51,6 @@ def main():
         effects(st.session_state.score,total_riddles)
 
 
-
-
 def riddle(desired_count):
     lis = []
     while len(lis) < desired_count:
@@ -103,7 +101,6 @@ def answer(file):
             return True
         else:
             st.session_state.tries -= 1
-            
             
     return None
             
