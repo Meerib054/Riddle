@@ -78,7 +78,7 @@ def answer(file):
         
         if st.button("Next Riddle"):
             st.session_state.tries = 3
-            returnn False
+            return False
     
                  
         return None
