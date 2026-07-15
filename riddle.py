@@ -80,7 +80,6 @@ def answer(file):
             st.session_state.tries = 3
             return False
     
-                 
         return None
 
     st.write(file["riddle"])
@@ -100,7 +99,8 @@ def answer(file):
             return True
         else:
             st.session_state.tries -= 1
-            st.rerun()
+            
+  return None
             
 
 
