@@ -85,7 +85,7 @@ def answer(file):
 
     pronoun=["my","our","a","the","in","their","your","an","it's"]
     symbols=["#","!","?","$","@"]
-    an=["".join(char for char in file["answer"] if char not in symbol)]
+    an=["".join(char for char in file["answer"] if char not in symbols)]
 
     if st.button("Check Answer"):
         if an.startswith(tuple(pronoun)):
